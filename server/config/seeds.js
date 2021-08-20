@@ -142,7 +142,6 @@ db.once('open', async () => {
 
         ],
         admin: false
-
     });
 
     await User.create({
@@ -151,7 +150,6 @@ db.once('open', async () => {
         email: 'eholt@testmail.com',
         password: 'password12345',
         admin: false
-
     });
 
     console.log('users seeded');

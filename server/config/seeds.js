@@ -139,6 +139,7 @@ db.once('open', async () => {
             {
                 products: [products[0]._id, products[0]._id, products[1]._id]
             }
+
         ],
         admin: false
     });

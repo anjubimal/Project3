@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
+
     name: {
         type: String,
         required: true,
@@ -29,6 +30,7 @@ const productSchema = new Schema({
         ref: 'Category',
         required: true
     }
+
 });
 
 const Product = mongoose.model('Product', productSchema);

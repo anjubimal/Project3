@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
+
     purchaseDate: {
         type: Date,
         default: Date.now
@@ -13,8 +14,11 @@ const orderSchema = new Schema({
             ref: 'Product'
         }
     ]
+
 });
 
 const Order = mongoose.model('Order', orderSchema);
 
+
 module.exports = Order;
+

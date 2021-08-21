@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-const { cloudinary } = require('../../utils/cloudinary');
 
-export default function Upload() {
+function ImageUpload() {
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
@@ -31,18 +30,18 @@ export default function Upload() {
             uploadImage(reader.result);
         };
         reader.onerror = () => {
-            console.error('Unable to Read image.');
+            console.error('AHHHHHHHH!!');
             setErrMsg('something went wrong!');
         };
     };
 
     const uploadImage = async (base64EncodedImage) => {
         try {
-            const image = JSON.stringify(base64EncodedImage);
-            const uploadResponse = await cloudinary.uploader.upload(image, {
-                upload_preset: 'dev_setups',
+            await fetch('/api/upload', {
+                method: 'POST',
+                body: JSON.stringify({ data: base64EncodedImage }),
+                headers: { 'Content-Type': 'application/json' },
             });
-            console.log(uploadResponse);
             setFileInputState('');
             setPreviewSource('');
             setSuccessMsg('Image uploaded successfully');
@@ -53,7 +52,6 @@ export default function Upload() {
     };
     return (
         <div>
-            <h1 className="title">Upload an Image</h1>
             <form onSubmit={handleSubmitFile} className="form">
                 <input
                     id="fileInput"
@@ -77,3 +75,5 @@ export default function Upload() {
         </div>
     );
 }
+
+export default ImageUpload;

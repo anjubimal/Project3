@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useStoreContext } from "../../utils/GlobalState";
+import { ADD_IMAGE_ID } from "../../utils/actions";
 
 function ImageUpload() {
+    let [dispatch] = useStoreContext();
+
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errMsg, setErrMsg] = useState('');
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
         previewFile(file);
@@ -31,7 +33,6 @@ function ImageUpload() {
         };
         reader.onerror = () => {
             console.error('AHHHHHHHH!!');
-            setErrMsg('something went wrong!');
         };
     };
 
@@ -44,14 +45,18 @@ function ImageUpload() {
             });
             setFileInputState('');
             setPreviewSource('');
-            setSuccessMsg('Image uploaded successfully');
 
             const info = await response.json();
             console.log(info);
+            if (response.ok) {
+                dispatch({
+                    type: ADD_IMAGE_ID,
+                    imageId: info
+                })
+            }
 
         } catch (err) {
             console.error(err);
-            setErrMsg('Something went wrong!');
         }
     };
     return (

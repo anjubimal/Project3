@@ -2,6 +2,7 @@ const { cloudinary } = require('./utils/cloudinary');
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+var cors = require('cors');
 
 const { typeDefs, resolvers } = require('./schemas');
 // const { authMiddleware } = require('./utils/auth');
@@ -20,39 +21,36 @@ async function startServer() {
   server.applyMiddleware({ app });
 }
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.urlencoded({ limit: '50mb', extended: false }));
+app.use(express.json({ limit: '50mb' }));
 
 // Serve up static assets
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
 //======================================================================
 // Image upload in progress.
-var cors = require('cors');
-app.use(express.static('public'));
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
 
 app.post('/api/upload', async (req, res) => {
   try {
     const fileStr = req.body.data;
     const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: 'dev_setups',
+      upload_preset: 'prime-asset',
     });
     console.log(uploadResponse);
-    res.json({ msg: 'yaya' });
+    res.json(uploadResponse.public_id);
   } catch (err) {
     console.error(err);
     res.status(500).json({ err: 'Something went wrong' });
   }
 });
 //======================================================================
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 db.once('open', () => {
   app.listen(PORT, () => {

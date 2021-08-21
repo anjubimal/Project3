@@ -37,7 +37,7 @@ function ImageUpload() {
 
     const uploadImage = async (base64EncodedImage) => {
         try {
-            await fetch('/api/upload', {
+            const response = await fetch('/api/upload', {
                 method: 'POST',
                 body: JSON.stringify({ data: base64EncodedImage }),
                 headers: { 'Content-Type': 'application/json' },
@@ -45,6 +45,10 @@ function ImageUpload() {
             setFileInputState('');
             setPreviewSource('');
             setSuccessMsg('Image uploaded successfully');
+
+            const info = await response.json();
+            console.log(info);
+
         } catch (err) {
             console.error(err);
             setErrMsg('Something went wrong!');

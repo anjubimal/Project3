@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Navigation from './components/Nav/index'
 
 import {
   ApolloProvider,
@@ -6,6 +9,8 @@ import {
   InMemoryCache,
   createHttpLink
 } from '@apollo/client';
+
+import { StoreProvider } from "./utils/GlobalState";
 
 
 const httpLink = createHttpLink({
@@ -21,9 +26,19 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-flex-start min-100-vh">
-      </div>
+      <Router>
+        <div>
+          <StoreProvider>
+            <Navigation />
+            {/* <Switch>
+              <Route exact path="/" component={Home} />
+              
+            </Switch> */}
+          </StoreProvider>
+        </div>
+      </Router>
     </ApolloProvider>
+
   );
 }
 

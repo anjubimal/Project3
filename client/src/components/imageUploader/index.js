@@ -3,11 +3,11 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_IMAGE_ID } from "../../utils/actions";
 
 function ImageUpload() {
-    const [dispatch] = useStoreContext();
-
+    const [state, dispatch] = useStoreContext();
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');
     const [selectedFile, setSelectedFile] = useState();
+
     const handleFileInputChange = (e) => {
         const file = e.target.files[0];
         previewFile(file);
@@ -47,14 +47,13 @@ function ImageUpload() {
             setPreviewSource('');
 
             const info = await response.json();
-            console.log(info);
             if (response.ok) {
                 dispatch({
                     type: ADD_IMAGE_ID,
                     imageId: info
                 })
             }
-
+            console.log(state);
         } catch (err) {
             console.error(err);
         }

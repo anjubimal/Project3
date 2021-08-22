@@ -1,6 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import ImageUpload from "./components/imageUploader";
+
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Nav from './components/Nav';
 import { StoreProvider } from "./utils/GlobalState";
 
 import {
@@ -27,6 +32,11 @@ function App() {
             <Router>
                 <div>
                     <StoreProvider>
+                        <Nav />
+                        <Switch>
+                            <Route exact path="/login" component={Login} />
+                            <Route exact path="/signup" component={Signup} />
+                        </Switch>
                         <ImageUpload />
                     </StoreProvider>
                 </div>

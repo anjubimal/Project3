@@ -50,12 +50,12 @@ export const ADD_USER = gql`
     }
 `;
 
-export const ADD_ORDER = gql`
-    mutation addOrder($input: productInput!) {
-        addOrder(input: $input) {
+// export const ADD_ORDER = gql`
+//     mutation addOrder($input: productInput!) {
+//         addOrder(input: $input) {
 
-        }
-`;
+//         }
+// `;
 
 
 export const ADD_PRODUCT = gql`

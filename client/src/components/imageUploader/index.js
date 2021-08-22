@@ -3,7 +3,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_IMAGE_ID } from "../../utils/actions";
 
 function ImageUpload() {
-    let [dispatch] = useStoreContext();
+    const [dispatch] = useStoreContext();
 
     const [fileInputState, setFileInputState] = useState('');
     const [previewSource, setPreviewSource] = useState('');

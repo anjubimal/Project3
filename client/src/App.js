@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
-import ImageUpload from "./components/imageUploader";
+import ImageUpload from "./components/ImageUploader";
 import { StoreProvider } from "./utils/GlobalState";
 
 import {

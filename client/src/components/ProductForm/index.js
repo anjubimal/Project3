@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_PRODUCT } from "../../utils/mutations";
-import { useMutation } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import ImageUpload from '../ImageUploader';
+import { QUERY_CATEGORIES } from '../../utils/queries';
+import { idbPromise } from '../../utils/helpers';
+import { UPDATE_CATEGORIES } from '../../utils/actions';
 
 function ProductForm() {
     const [formState, setFormState] = useState({
@@ -12,10 +15,29 @@ function ProductForm() {
         quantity: '',
         category: ''
     });
-    const [state] = useStoreContext();
-    const { imageId } = state;
-    const categories = [{ name: 'test', _id: '611dadf72b2dc83d3cf5d6b0' }, { name: '1', _id: 1 }, { name: '2', _id: 2 }];
+    const [state, dispatch] = useStoreContext();
+    const { categories, imageId } = state;
+    const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
     const [addProduct] = useMutation(ADD_PRODUCT);
+
+    useEffect(() => {
+        if (categoryData) {
+            dispatch({
+                type: UPDATE_CATEGORIES,
+                categories: categoryData.categories
+            });
+            categoryData.categories.forEach(category => {
+                idbPromise('categories', 'put', category);
+            });
+        } else if (!loading) {
+            idbPromise('categories', 'get').then(categories => {
+                dispatch({
+                    type: UPDATE_CATEGORIES,
+                    categories: categories
+                });
+            });
+        }
+    }, [categoryData, loading, dispatch]);
 
     const handleFormSubmit = async event => {
         event.preventDefault();

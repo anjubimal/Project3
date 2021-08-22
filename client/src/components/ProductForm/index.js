@@ -93,7 +93,7 @@ function ProductForm() {
                     />
                 </div>
                 <div className="">
-                    <label htmlFor="category">Product Price:</label>
+                    <label htmlFor="category">Product Category:</label>
                     <select
                         name="category"
                         id="category"

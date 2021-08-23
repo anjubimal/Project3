@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navigation from './components/Nav/index'
+import Footer from './components/Footer/index'
 
 import {
   ApolloProvider,
@@ -11,6 +12,12 @@ import {
 } from '@apollo/client';
 
 import { StoreProvider } from "./utils/GlobalState";
+
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Admin from "./pages/Admin";
 
 
 const httpLink = createHttpLink({
@@ -30,10 +37,14 @@ function App() {
         <div>
           <StoreProvider>
             <Navigation />
-            {/* <Switch>
+            <Switch>
               <Route exact path="/" component={Home} />
-              
-            </Switch> */}
+              <Route exact path="/products" component={Products} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/admin" component={Admin} />              
+            </Switch>
+            <Footer />
           </StoreProvider>
         </div>
       </Router>

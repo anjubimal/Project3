@@ -1,27 +1,53 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
 
 const Navigation = () => {
+
+    function showNavigation() {
+        if (Auth.loggedIn()) {
+            return (
+                <ul>                
+                    <li>
+                        <Link to="/products">Products</Link>
+                    </li>
+                    <li className="mx-1">
+                        <a href="/" onClick={() => Auth.logout()}>Logout</a>
+                    </li>    
+                    <li>
+                        <Link to="/admin">Admin</Link>
+                </li>
+                </ul>
+            )
+        }
+
+        else {
+            return (
+                <ul>
+                    <li>
+                        <Link to="/products">Products</Link>
+                    </li>
+                    <li>
+                        <Link to="/login">login</Link>
+                    </li>
+                    <li>
+                        <Link to="/signup">Signup</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin">Admin</Link>
+                    </li>
+                </ul>
+            )
+        }
+    }
+
+
     return (
         <div>
-            <h1>Nav</h1>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/products">Products</Link>
-                </li>
-                <li>
-                    <Link to="/login">login</Link>
-                </li>
-                <li>
-                    <Link to="/signup">Signup</Link>
-                </li>
-                <li>
-                    <Link to="/admin">Admin</Link>
-                </li>
-            </ul>
+            <Link to="/">Store Name</Link>
+            <nav>
+                {showNavigation()}
+            </nav>
         </div>
     )
 }

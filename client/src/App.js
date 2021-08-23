@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import ImageUpload from "./components/imageUploader";
 
 import Navigation from './components/Nav/index'
 import Footer from './components/Footer/index'

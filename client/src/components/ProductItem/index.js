@@ -7,8 +7,8 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
 function ProductItem(item) {
-	//const dispatch = useDispatch();
-	//const state = useSelector(state => state);
+	//const dispatch = useDispatch();// ----- redux
+	//const state = useSelector(state => state);// -----redux
 	const [state, dispatch] = useStoreContext();
 
 	const { image, name, _id, price, quantity } = item;

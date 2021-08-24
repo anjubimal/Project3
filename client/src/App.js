@@ -2,12 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import ProductForm from "./components/ProductForm";
 import { StoreProvider } from "./utils/GlobalState";
-import { ApolloProvider } from '@apollo/react-hooks';
+// import { ApolloProvider } from '@apollo/react-hooks';
 import {
+  ApolloProvider,
   ApolloClient,
   InMemoryCache,
   createHttpLink
-} from '@apollo/client';
+} from '@apollo/react-hooks';
 
 import Navigation from './components/Nav'
 import Home from "./pages/Home";

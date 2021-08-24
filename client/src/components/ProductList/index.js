@@ -6,8 +6,8 @@ import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
-import spinner from "../../assets/spinner.gif"
 
+const spinner = "../../assests/spinner.gif"
 
 function ProductList() {
     //const state = useSelector(state => state);// --------- redux

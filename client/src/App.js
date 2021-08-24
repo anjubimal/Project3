@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import ProductForm from "./components/ProductForm";
 import { StoreProvider } from "./utils/GlobalState";
+import { ApolloProvider } from '@apollo/react-hooks';
 import {
-  ApolloProvider,
   ApolloClient,
   InMemoryCache,
   createHttpLink
@@ -22,9 +22,20 @@ const httpLink = createHttpLink({
 });
 
 const client = new ApolloClient({
-    link: httpLink,
-    cache: new InMemoryCache(),
-});
+  link: httpLink,
+  cache: new InMemoryCache(),
+  request: (operation) => { 
+    // cache: new InMemoryCache()
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  }
+})
+
+
 
 function App() {
     return (

@@ -1,10 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
-import ImageUpload from "./components/imageUploader";
+import ProductForm from "./components/ProductForm";
 import { StoreProvider } from "./utils/GlobalState";
-
+import { ApolloProvider } from '@apollo/react-hooks';
 import {
-    ApolloProvider,
     ApolloClient,
     InMemoryCache,
     createHttpLink
@@ -27,7 +26,7 @@ function App() {
             <Router>
                 <div>
                     <StoreProvider>
-                        <ImageUpload />
+                        <ProductForm />
                     </StoreProvider>
                 </div>
             </Router>

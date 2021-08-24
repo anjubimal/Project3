@@ -44,7 +44,6 @@ export const ADD_USER = gql`
                         category
                     }
                 }
-
             }
         }
     }

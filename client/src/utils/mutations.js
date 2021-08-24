@@ -1,52 +1,77 @@
 import gql from 'graphql-tag';
 
+
+// I re-did the add_user and login_user to get it to work. kept the old code just in case - Chris Winters
+// export const LOGIN_USER = gql`
+//     mutation login($email: String!, $password: String!) {
+//         login(email: $email, password: $password) {
+//         token
+//             user {
+//                 _id
+//                 username
+//                 email
+//                 productCount
+//                 savedProducts {
+//                     productId
+//                     name
+//                     vote
+//                     overview
+//                     image
+//                     release
+//                 }
+//             }
+//         }
+//     }
+// `;
+
+// export const ADD_USER = gql`
+//     mutation addUser($firstName: String!, $lastName: String! $email: String!, $password: String!) {
+//         addUser(firstname: $firstname, lastname: $lastname, email: $email, password: $password) {
+//         token
+//             user {
+//                 _id
+//                 firstName
+//                 lastName
+//                 email
+//                 orders {
+//                     _id
+//                     purchaseDate
+//                     products {
+//                         _id
+//                         name
+//                         description
+//                         image
+//                         quantity
+//                         price
+//                         category
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// `;
+
+
 export const LOGIN_USER = gql`
-    mutation login($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
-        token
-            user {
-                _id
-                username
-                email
-                productCount
-                savedProducts {
-                    productId
-                    name
-                    vote
-                    overview
-                    image
-                    release
-                }
-            }
-        }
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+      }
     }
+  }
 `;
 
 export const ADD_USER = gql`
-    mutation addUser($firstName: String!, $lastName: String! $email: String!, $password: String!) {
-        addUser(firstname: $firstname, lastname: $lastname, email: $email, password: $password) {
-        token
-            user {
-                _id
-                firstName
-                lastName
-                email
-                orders {
-                    _id
-                    purchaseDate
-                    products {
-                        _id
-                        name
-                        description
-                        image
-                        quantity
-                        price
-                        category
-                    }
-                }
-            }
-        }
+  mutation addUser($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+    addUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
+      token
+      user {
+        _id
+      }
     }
+  }
 `;
 
 export const ADD_ORDER = gql`

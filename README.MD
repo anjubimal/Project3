@@ -93,7 +93,11 @@ Is installable.
 
 Contact me with any questions:
 
-[hughbowie@me.com](mailto:hughbowie@me.com)<br />[GitHub](https://github.com/hugh-bowie)<br />
-[anjubimal@me.com](mailto:anjubimal@me.com)<br />[GitHub](https://github.com/anjubimal)<br />
-[cwinters87@gmail.com](mailto:cwinters87@gmail.com)<br />[GitHub](https://github.com/cwinters87)<br />
-[winkler102@gmail.com](mailto:hughbowie@me.com)<br />[GitHub](https://github.com/Winkler102)<br />
+[hughbowie@me.com](mailto:hughbowie@me.com)
+[GitHub](https://github.com/hugh-bowie)<br />
+[anjubimal@me.com](mailto:anjubimal@me.com)
+[GitHub](https://github.com/anjubimal)<br />
+[cwinters87@gmail.com](mailto:cwinters87@gmail.com)
+[GitHub](https://github.com/cwinters87)<br />
+[winkler102@gmail.com](mailto:hughbowie@me.com)
+[GitHub](https://github.com/Winkler102)<br />

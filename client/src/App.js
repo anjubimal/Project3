@@ -1,4 +1,7 @@
 import React from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
+import ImageUpload from "./components/imageUploader";
+import { StoreProvider } from "./utils/GlobalState";
 
 import {
     ApolloProvider,
@@ -21,8 +24,13 @@ const client = new ApolloClient({
 function App() {
     return (
         <ApolloProvider client={client}>
-            <div className="flex-column justify-flex-start min-100-vh">
-            </div>
+            <Router>
+                <div>
+                    <StoreProvider>
+                        <ImageUpload />
+                    </StoreProvider>
+                </div>
+            </Router>
         </ApolloProvider>
     );
 }

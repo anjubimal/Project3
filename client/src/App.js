@@ -1,30 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
-import ProductForm from "./components/ProductForm";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import ProductForm from "./components/ProductForm";
 import { StoreProvider } from "./utils/GlobalState";
 import { ApolloProvider } from '@apollo/react-hooks';
 import {
-    ApolloClient,
-    InMemoryCache,
-    createHttpLink
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink
 } from '@apollo/client';
 
+import Navigation from './components/Nav'
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Admin from "./pages/Admin";
-
+import Admin from "./pages/Admin"
+import Footer from "./components/Footer";
 
 const httpLink = createHttpLink({
-    uri: '/graphql',
+  uri: '/graphql',
 });
 
 const client = new ApolloClient({
     link: httpLink,
     cache: new InMemoryCache(),
 });
-
 
 function App() {
     return (

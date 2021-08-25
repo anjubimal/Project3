@@ -2,6 +2,7 @@ const { cloudinary } = require('./utils/cloudinary');
 const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
+const { authMiddleware } = require('./utils/auth');
 var cors = require('cors');
 
 const { typeDefs, resolvers } = require('./schemas');
@@ -13,7 +14,7 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  // context: authMiddleware
+  context: authMiddleware
 });
 
 async function startServer() {

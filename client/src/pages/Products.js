@@ -1,11 +1,16 @@
 import React from 'react';
 import ProductList from '../components/ProductList';
+import '../components/ProductPage/style.css'
+import Cart from '../components/Cart';
 
 const Products = () => {
     return (
-        <div>
-            <h3>This is the product page</h3>
-            <ProductList />
+        <div className="product-div">
+            <h1 className="title">Store:</h1>
+            <div className="wrapper">
+                <ProductList />
+            </div>
+            <Cart />
         </div>
     )
 }

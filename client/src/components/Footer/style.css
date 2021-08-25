@@ -1,0 +1,26 @@
+#footer-div {
+    height: 5%;
+    padding-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+  }
+
+  #footer-div > h3 {
+    padding-right: 10px;
+  }
+
+  #footer-contact-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-contact {
+    padding-right: 8px;
+    color: black;
+  }
+
+  #footer-email {
+    text-decoration: none;
+    color: black;
+  }

@@ -1,4 +1,4 @@
-body {
+/* body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +10,59 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
-}
+} */
+
+:root {
+	--primary: #bb9457;
+	--secondary: #432818;
+	--tertiary: #6f1d1b;
+  }
+  
+  html, body {
+	margin: 0;
+	height: 100%;
+  }
+  
+  body {
+	margin: 0;
+	box-sizing: border-box;
+  }
+  
+  #root {
+	height: 100%;
+	font-family: 'Red Hat Display';
+  }
+  
+  #container {
+	background-color: var(--primary);
+	height: 100%;
+	padding: 0;
+  }
+  
+  #hero {
+	height: 15%;
+	padding: 10px;
+	margin: 0;
+	background-color: var(--secondary);
+  }
+  
+  #main-div {
+	height: 80%;
+	padding: 2%;
+	color: white;
+	background-image: url("./assets/wood-background.jpg");
+	background-size: cover;
+
+  }
+  
+  @media screen and (max-width: 991px) {
+  
+	#hero {
+	  height: auto;
+	  padding-left: 20px;
+	}
+  
+	#main-div {
+	  height: auto;
+	}
+  }

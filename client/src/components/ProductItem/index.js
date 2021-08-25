@@ -5,6 +5,9 @@ import { pluralize } from '../../utils/helpers';
 import { useStoreContext } from "../../utils/GlobalState";// ------- non redux
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
+import { CloudinaryContext, Image } from 'cloudinary-react';
+import './style.css'
+
 
 function ProductItem(item) {
 	//const dispatch = useDispatch();// ----- redux
@@ -37,18 +40,23 @@ function ProductItem(item) {
 	};
 
 	return (
-		<div className='card px-1 py-1'>
-			<Link to={`/products/${_id}`}>
-				<img alt={name} src={`/images/${image}`} />
-				<p>{name}</p>
+		<div className="card">
+			<Link to={`/products/${_id}`} className="card-top-div">
+			<CloudinaryContext cloudName="dfo6h6ipu">
+					<Image publicId={image} className="card-img"/>
+				</CloudinaryContext>
 			</Link>
-			<div>
-				<div>
+			<div className="card-bottom-div">
+				<p className="card-name">{name}</p>
+				<div className="quantity-div">
 					{quantity} {pluralize('item', quantity)} in stock
 				</div>
-				<span>${price}</span>
+				<span className="price-div">${price}</span>
 			</div>
-			<button onClick={addToCart}>Add to cart</button>
+			<div className="btn-div">
+				<button onClick={addToCart} className="add-to-cart-btn">Add to cart</button>
+			</div>
+			
 		</div>
 	);
 }

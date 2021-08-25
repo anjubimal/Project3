@@ -10,6 +10,10 @@ import { idbPromise } from '../utils/helpers';
 import { DELETE_PRODUCT } from '../utils/mutations';
 import '../components/AdminPage/style.css'
 
+function refreshPage() {
+    window.location.reload(false);
+  }
+
 const Admin = () => {
 	const { loading, data } = useQuery(QUERY_PRODUCTS);
 	const [deleteProduct] = useMutation(DELETE_PRODUCT);
@@ -60,8 +64,10 @@ const Admin = () => {
 				<div id="product-div-scroll">
 					<div id="admin-wrapper">
 						{state.products.map(product => (
-							<div key={product._id}>
-								<button onClick={() => handleDeleteProduct(product._id)}>Delete</button>
+							<div className="admin-card" key={product._id}>
+								<button className="delete-btn" onClick={() => {
+									refreshPage()
+									handleDeleteProduct(product._id)}}>Delete</button>
 								<ProductItem _id={product._id} image={product.image} name={product.name} price={product.price} quantity={product.quantity} />
 							</div>
 						))}

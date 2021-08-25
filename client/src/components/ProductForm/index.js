@@ -8,6 +8,10 @@ import { idbPromise } from '../../utils/helpers';
 import { UPDATE_CATEGORIES } from '../../utils/actions';
 import './style.css'
 
+function refreshPage() {
+    window.location.reload(false);
+  }
+
 function ProductForm(props) {
     const objects = { ...props };
     const updating = false;
@@ -153,7 +157,7 @@ function ProductForm(props) {
                         ))}
                     </select>
                 </div>                
-                <button id="admin-btn" data-testid="button" type="submit">Submit</button>
+                <button id="admin-btn" data-testid="button" type="submit" onClick={() => refreshPage()}>Submit</button>
             </form>
         </div>
     );

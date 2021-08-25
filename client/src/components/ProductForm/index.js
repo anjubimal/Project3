@@ -10,7 +10,7 @@ import './style.css'
 
 function refreshPage() {
     window.location.reload(false);
-  }
+}
 
 function ProductForm(props) {
     const objects = { ...props };
@@ -78,7 +78,7 @@ function ProductForm(props) {
                         image: imageId,
                         price: parseFloat(formState.price),
                         quantity: parseInt(formState.quantity),
-                        category: formState.category
+                        // category: formState.category
                     }
                 });
                 const token = mutationResponse;
@@ -156,7 +156,7 @@ function ProductForm(props) {
                             <option key={item._id} value={item._id}>{item.name}</option>
                         ))}
                     </select>
-                </div>                
+                </div>
                 <button id="admin-btn" data-testid="button" type="submit" onClick={() => refreshPage()}>Add Product</button>
             </form>
         </div>

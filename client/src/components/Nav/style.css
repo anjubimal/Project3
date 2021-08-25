@@ -12,6 +12,12 @@
     font-weight: bolder;
 }
 
+#page-title:hover {
+  transition: 0.5s;
+  color: var(--tertiary);
+	
+}
+
 #nav-bar-position {
     display: flex;
     justify-content: flex-end;

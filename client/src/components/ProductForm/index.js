@@ -157,7 +157,7 @@ function ProductForm(props) {
                         ))}
                     </select>
                 </div>                
-                <button id="admin-btn" data-testid="button" type="submit" onClick={() => refreshPage()}>Submit</button>
+                <button id="admin-btn" data-testid="button" type="submit" onClick={() => refreshPage()}>Add Product</button>
             </form>
         </div>
     );

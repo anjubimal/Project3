@@ -37,4 +37,8 @@ input:focus {
 
 #img-preview {
     max-width: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--secondary);
+    margin-top: 4px;
 }

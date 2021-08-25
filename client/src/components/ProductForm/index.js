@@ -6,6 +6,7 @@ import ImageUpload from '../ImageUploader';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import { UPDATE_CATEGORIES } from '../../utils/actions';
+import './style.css'
 
 function ProductForm(props) {
     const objects = { ...props };
@@ -93,11 +94,11 @@ function ProductForm(props) {
     };
 
     return (
-        <div>
-            <h2>Add Product</h2>
+        <div id="admin-container">
+            <h2 id="admin-title">Add Product</h2>
             <ImageUpload />
-            <form onSubmit={handleFormSubmit}>
-                <div className="">
+            <form id="admin-form" onSubmit={handleFormSubmit}>
+                <div className="admin-section-divs">
                     <label htmlFor="name">Product Name:</label>
                     <input
                         placeholder={placeHolderName}
@@ -107,7 +108,7 @@ function ProductForm(props) {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="description">Product Description:</label>
                     <input
                         placeholder={placeHolderDescription}
@@ -117,7 +118,7 @@ function ProductForm(props) {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="price">Product Price:</label>
                     <input
                         placeholder={placeHolderPrice}
@@ -128,7 +129,7 @@ function ProductForm(props) {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="quantity">Product Quantity:</label>
                     <input
                         placeholder={placeHolderAmount}
@@ -138,7 +139,7 @@ function ProductForm(props) {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="category">Product Category:</label>
                     <select
                         name="category"
@@ -151,12 +152,8 @@ function ProductForm(props) {
                             <option key={item._id} value={item._id}>{item.name}</option>
                         ))}
                     </select>
-                </div>
-                <div className="flex-row flex-end">
-                    <button type="submit">
-                        Submit
-                    </button>
-                </div>
+                </div>                
+                <button id="admin-btn" data-testid="button" type="submit">Submit</button>
             </form>
         </div>
     );

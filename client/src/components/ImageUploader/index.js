@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_IMAGE_ID } from "../../utils/actions";
+import './style.css'
 
 function ImageUpload() {
     const [state, dispatch] = useStoreContext();
@@ -60,7 +61,7 @@ function ImageUpload() {
     };
     return (
         <div>
-            <form onSubmit={handleSubmitFile} className="form">
+            <form onSubmit={handleSubmitFile} className="image-form">
                 <input
                     id="fileInput"
                     type="file"
@@ -69,7 +70,7 @@ function ImageUpload() {
                     value={fileInputState}
                     className="form-input"
                 />
-                <button className="btn" type="submit">
+                <button className="img-btn" type="submit">
                     Submit
                 </button>
             </form>

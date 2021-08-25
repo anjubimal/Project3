@@ -8,6 +8,7 @@ import { useStoreContext } from '../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
 import { DELETE_PRODUCT } from '../utils/mutations';
+import '../components/AdminPage/style.css'
 
 const Admin = () => {
 	const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -52,16 +53,27 @@ const Admin = () => {
 	};
 
 	return (
-		<div>
-			<h1>This is the Admin page!</h1>
-			<ProductForm />
-			<Cart />
-			{state.products.map(product => (
-				<div key={product._id}>
-					<button onClick={() => handleDeleteProduct(product._id)}>Delete</button>
-					<ProductItem _id={product._id} image={product.image} name={product.name} price={product.price} quantity={product.quantity} />
-				</div>
-			))}
+		<div id="admin-div">
+			<h1 className="title">Add, Edit, and Delete Products:</h1>	
+			<div id="admin-page-div">
+				<ProductForm />	
+				<div id="product-div-scroll">
+					<div id="admin-wrapper">
+						{state.products.map(product => (
+							<div key={product._id}>
+								<button onClick={() => handleDeleteProduct(product._id)}>Delete</button>
+								<ProductItem _id={product._id} image={product.image} name={product.name} price={product.price} quantity={product.quantity} />
+							</div>
+						))}
+					</div>
+				</div>		
+				
+
+			</div>
+			
+
+
+			<Cart />			
 		</div>
 	);
 };

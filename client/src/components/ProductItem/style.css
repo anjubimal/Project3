@@ -1,0 +1,70 @@
+.card {
+    height: 325px;
+    margin: 1rem;
+    position: relative;
+    width: 325px;
+    box-shadow: 0 3px 6px var(--secondary), 0 3px 6px var(--secondary);
+    text-align: left;
+    border-radius: 3px;
+  }
+
+.card:hover {
+    transition: 0.5s;
+    box-shadow: 0 6px 8px var(--tertiary), 0 6px 8px var(--tertiary);
+  }
+
+.card-top-div {
+    background-color: var(--secondary);
+    height: 65%;
+    width: auto;
+    overflow: hidden;
+    border-radius: 3px 3px 0px 0px;
+  }
+
+.card-img {
+    width: 100%;
+    border-radius: 3px 3px 0px 0px;
+  }
+
+.card-name {
+    margin-top: 3px;
+    margin-left: 5px;
+  }
+
+.quantity-div {
+    margin-top: 3px;
+    margin-left: 5px;
+  }
+
+.price-div {
+    margin-top: 3px;
+    margin-left: 5px;
+}
+
+.card-bottom-div {
+    background-color: var(--secondary);
+  }
+
+.btn-div {
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 3px 3px;
+  }
+
+.add-to-cart-btn {
+    width: 98%;
+    background-color: var(--tertiary);
+    font-weight: 600;      
+    color: #fff;      
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+.add-to-cart-btn:hover {
+    color: black;
+    transition: 0.5s;
+}

@@ -1,0 +1,20 @@
+.product-div {
+    padding-top: 50px;
+    background: var(--primary);
+    height: 100%;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .wrapper {  
+    padding-top: 50px;
+    background: var(--primary);
+    max-height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 20px;
+    justify-content: space-around;
+    align-content: flex-start;
+    overflow: auto;
+  }

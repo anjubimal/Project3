@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
+import './style.css'
 
 function ProductList() {
 	//const state = useSelector(state => state);// --------- redux
@@ -49,10 +50,9 @@ function ProductList() {
 	}
 
 	return (
-		<div className='my-2'>
-			<h2>Our Products:</h2>
+		<div>
 			{state.products.length ? (
-				<div className='flex-row'>
+				<div className="card-wrapper">
 					{filterProducts().map(product => (
 						<ProductItem key={product._id} _id={product._id} image={product.image} name={product.name} price={product.price} quantity={product.quantity} />
 					))}

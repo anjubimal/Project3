@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { Link } from 'react-router-dom';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import '../components/Login/style.css'
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -30,12 +31,11 @@ function Login(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
+    <section id="login-container">
 
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
+      <h1 id="login-title" data-testid="h1tag">Login:</h1>
+      <form id="login-form" onSubmit={handleFormSubmit}>
+        <div className="login-section-divs">
           <label htmlFor="email">Email address:</label>
           <input
             placeholder="youremail@test.com"
@@ -45,7 +45,7 @@ function Login(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="login-section-divs">
           <label htmlFor="pwd">Password:</label>
           <input
             placeholder="******"
@@ -56,15 +56,20 @@ function Login(props) {
           />
         </div>
         {error ? (
-          <div>
+          <div id="error-div" className="login-section-divs">
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
+        
+        <button id="login-btn" data-testid="button" type="submit">Submit</button>
+
       </form>
-    </div>
+      <div className="login-signup-link-div">
+        <Link className="login-signup-link" to="/signup">← Go to Signup</Link>
+      </div>
+
+
+    </section>
   );
 }
 

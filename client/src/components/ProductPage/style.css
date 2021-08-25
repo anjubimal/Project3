@@ -1,6 +1,6 @@
 .product-div {
     padding-top: 50px;
-    background: var(--primary);
+    /* background: var(--primary); */
     height: 100%;
     position: relative;
     padding: 20px;
@@ -8,7 +8,7 @@
   
   .wrapper {  
     padding-top: 50px;
-    background: var(--primary);
+    /* background: var(--primary); */
     max-height: 100%;
     overflow-y: auto;
     display: flex;
@@ -18,3 +18,8 @@
     align-content: flex-start;
     overflow: auto;
   }
+
+.title {
+  color: var(--secondary);
+  font-weight: bold;
+}

@@ -13,9 +13,9 @@ code {
 } */
 
 :root {
-	--primary: #023047;
-	--secondary: #219ebc;
-	--tertiary: #fb8500;
+	--primary: #bb9457;
+	--secondary: #432818;
+	--tertiary: #6f1d1b;
   }
   
   html, body {
@@ -36,18 +36,23 @@ code {
   #container {
 	background-color: var(--primary);
 	height: 100%;
+	padding: 0;
   }
   
   #hero {
 	height: 15%;
 	padding: 10px;
+	margin: 0;
 	background-color: var(--secondary);
   }
   
   #main-div {
-	height: 75%;
+	height: 80%;
 	padding: 2%;
 	color: white;
+	background-image: url("./assets/wood-background.jpg");
+	background-size: cover;
+
   }
   
   @media screen and (max-width: 991px) {

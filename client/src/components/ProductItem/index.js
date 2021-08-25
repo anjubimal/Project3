@@ -43,7 +43,7 @@ function ProductItem(item) {
 		<div className="card">
 			<Link to={`/products/${_id}`} className="card-top-div">
 			<CloudinaryContext cloudName="dfo6h6ipu">
-					<Image publicId={image} width="100px" className="card-img"/>
+					<Image publicId={image} className="card-img"/>
 				</CloudinaryContext>
 			</Link>
 			<div className="card-bottom-div">

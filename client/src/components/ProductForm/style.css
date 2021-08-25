@@ -49,6 +49,15 @@ textarea {
     padding: 0.25rem;
 }
 
+#category {
+    color: var(--secondary);
+    background-color: var(--fourth);
+    border: 1px solid var(--secondary);
+    outline: none;
+    border-radius: 3px;
+    transition: box-shadow 0.2s;
+}
+
 #admin-btn {
     background: var(--secondary);
     border: 0;

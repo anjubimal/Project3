@@ -25,6 +25,7 @@ input:focus {
     color: #fff;
     cursor: pointer;
     font-weight: 600;
+    margin-top: 4px;
     margin-left: 4px;
 }
 

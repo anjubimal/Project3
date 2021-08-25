@@ -71,7 +71,7 @@ function ImageUpload() {
                     className="form-input"
                 />
                 <button className="img-btn" type="submit">
-                    Submit
+                ↑ Add Picture
                 </button>
             </form>
             {previewSource && (

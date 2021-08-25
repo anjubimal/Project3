@@ -48,7 +48,8 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-  margin: 1rem;
+  /* margin: 1rem; */
+  margin: 1rem 1rem 0px 1rem;
   /* margin-top: 15px; */
   padding: 10px 15px;
 }
@@ -57,3 +58,9 @@
   transition: 0.5s;
   color: black;
 }
+
+.delete-btn:hover ~ .card {
+	transition: 0.5s;
+	box-shadow: 0 6px 8px var(--tertiary), 0 6px 8px var(--tertiary);
+  }
+

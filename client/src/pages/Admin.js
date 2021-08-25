@@ -67,7 +67,7 @@ const Admin = () => {
 							<div className="admin-card" key={product._id}>
 								<button className="delete-btn" onClick={() => {
 									refreshPage()
-									handleDeleteProduct(product._id)}}>Delete</button>
+									handleDeleteProduct(product._id)}}>Delete ↓</button>
 								<ProductItem _id={product._id} image={product.image} name={product.name} price={product.price} quantity={product.quantity} />
 							</div>
 						))}

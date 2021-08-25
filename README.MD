@@ -26,7 +26,7 @@ real-world challenge
 
 ## 🎬 Screenshot
 
-![Project3](./Project3.gif)
+![Project3](./assets/images/project3.png)
 
 ## 🃏 User Story
 
@@ -97,7 +97,7 @@ Contact me with any questions:
 [GitHub](https://github.com/hugh-bowie)<br />
 [anjubimal@me.com](mailto:anjubimal@me.com)
 [GitHub](https://github.com/anjubimal)<br />
-[cwinters87@gmail.com](mailto:cwinters87@gmail.com)
+[taylor314@gmail.com](mailto:taylor314@gmail.com)
 [GitHub](https://github.com/cwinters87)<br />
 [winkler102@gmail.com](mailto:hughbowie@me.com)
 [GitHub](https://github.com/Winkler102)<br />

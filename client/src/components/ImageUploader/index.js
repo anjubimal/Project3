@@ -75,7 +75,7 @@ function ImageUpload() {
                 </button>
             </form>
             {previewSource && (
-                <img
+                <img id="img-preview"
                     src={previewSource}
                     alt="chosen"
                     style={{ height: '300px' }}

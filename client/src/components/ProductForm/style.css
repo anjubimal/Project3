@@ -6,6 +6,12 @@
     position: relative;
     color: var(--secondary);
     font-weight: bold;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#admin-container::-webkit-scrollbar {
+    display: none;
 }
 
 #admin-title {

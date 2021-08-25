@@ -34,3 +34,7 @@ input:focus {
     background-color: var(--tertiary);
     color: black;
 }
+
+#img-preview {
+    max-width: 100%;
+}

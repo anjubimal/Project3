@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import '../components/SignUp/style.css'
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -31,12 +32,12 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+    <section id="signup-container">
+      
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
+      <h1 id="signup-title" data-testid="h1tag">Signup:</h1>
+      <form id="signup-form" onSubmit={handleFormSubmit}>
+        <div className="signup-section-divs">
           <label htmlFor="firstName">First Name:</label>
           <input
             placeholder="First"
@@ -46,7 +47,7 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="signup-section-divs">
           <label htmlFor="lastName">Last Name:</label>
           <input
             placeholder="Last"
@@ -56,7 +57,7 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="signup-section-divs">
           <label htmlFor="email">Email:</label>
           <input
             placeholder="youremail@test.com"
@@ -66,7 +67,7 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
+        <div className="signup-section-divs">
           <label htmlFor="pwd">Password:</label>
           <input
             placeholder="******"
@@ -76,12 +77,17 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
+        
+        <button id="signup-btn" data-testid="button" type="submit">Submit</button>
+        
       </form>
-    </div>
+      <div className="login-signup-link-div">
+        <Link className="login-signup-link" to="/login">← Go to Login</Link>
+      </div>
+    </section>
   );
 }
+
+
 
 export default Signup;

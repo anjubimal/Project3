@@ -3,7 +3,7 @@ import { useStoreContext } from '../../utils/GlobalState';//--------------- use 
 //import { useDispatch } from 'react-redux';//-------------- use if redux
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { idbPromise } from "../../utils/helpers";
-
+import { CloudinaryContext, Image } from 'cloudinary-react';
 
 const CartItem = ({ item }) => {
     const [, dispatch] = useStoreContext();//----------- use if non-redux
@@ -41,10 +41,9 @@ const CartItem = ({ item }) => {
     return (
         <div className="flex-row">
             <div>
-                <img
-                    src={`/images/${item.image}`}
-                    alt=""
-                />
+                <CloudinaryContext cloudName="dfo6h6ipu">
+                    <Image publicId={item.image} className="card-img" />
+                </CloudinaryContext>
             </div>
             <div>
                 <div>{item.name}, ${item.price}</div>

@@ -140,6 +140,9 @@ const resolvers = {
             const token = signToken(user);
 
             return { token, user };
+        },
+        deleteProduct: async (parent, { _id }) => {
+            return await Product.findByIdAndDelete(_id);
         }
     }
 };

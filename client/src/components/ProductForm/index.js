@@ -1,13 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_PRODUCT } from "../../utils/mutations";
+import { ADD_PRODUCT, SAVE_PRODUCT } from "../../utils/mutations";
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import ImageUpload from '../ImageUploader';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import { UPDATE_CATEGORIES } from '../../utils/actions';
+import './style.css'
 
-function ProductForm() {
+function refreshPage() {
+    window.location.reload(false);
+  }
+
+function ProductForm(props) {
+    const objects = { ...props };
+    const updating = false;
+    let placeHolderName = 'name';
+    let placeHolderDescription = 'Description';
+    let placeHolderPrice = '$$$';
+    let placeHolderAmount = '100';
+    if (updating) {
+        placeHolderName = '';
+        placeHolderDescription = '';
+        placeHolderPrice = '';
+        placeHolderAmount = '';
+    }
+
     const [formState, setFormState] = useState({
         name: '',
         description: '',
@@ -19,6 +37,7 @@ function ProductForm() {
     const { categories, imageId } = state;
     const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
     const [addProduct] = useMutation(ADD_PRODUCT);
+    const [saveProduct] = useMutation(SAVE_PRODUCT);
 
     useEffect(() => {
         if (categoryData) {
@@ -43,18 +62,28 @@ function ProductForm() {
         event.preventDefault();
         console.log(formState.category);
         try {
-            const mutationResponse = await addProduct({
-                variables: {
-                    name: formState.name,
-                    description: formState.description,
-                    image: imageId,
-                    price: parseFloat(formState.price),
-                    quantity: parseInt(formState.quantity),
-                    category: formState.category
-                }
-            });
-            const token = mutationResponse;
-            console.log(token);
+            if (updating) {
+                const mutationResponse = await saveProduct({
+                    variables: {
+                        _id: objects.id
+                    }
+                });
+                const token = mutationResponse;
+                console.log(token);
+            } else {
+                const mutationResponse = await addProduct({
+                    variables: {
+                        name: formState.name,
+                        description: formState.description,
+                        image: imageId,
+                        price: parseFloat(formState.price),
+                        quantity: parseInt(formState.quantity),
+                        category: formState.category
+                    }
+                });
+                const token = mutationResponse;
+                console.log(token);
+            }
         } catch (err) {
             console.error(err);
         }
@@ -69,34 +98,34 @@ function ProductForm() {
     };
 
     return (
-        <div>
-            <h2>Add Product</h2>
+        <div id="admin-container">
+            <h2 id="admin-title">Add Product</h2>
             <ImageUpload />
-            <form onSubmit={handleFormSubmit}>
-                <div className="">
+            <form id="admin-form" onSubmit={handleFormSubmit}>
+                <div className="admin-section-divs">
                     <label htmlFor="name">Product Name:</label>
                     <input
-                        placeholder="name"
+                        placeholder={placeHolderName}
                         name="name"
                         type="text"
                         id="name"
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="description">Product Description:</label>
                     <input
-                        placeholder="Description"
+                        placeholder={placeHolderDescription}
                         name="description"
                         type="text"
                         id="description"
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="price">Product Price:</label>
                     <input
-                        placeholder="$$$"
+                        placeholder={placeHolderPrice}
                         name="price"
                         type="number"
                         step='0.01'
@@ -104,17 +133,17 @@ function ProductForm() {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="quantity">Product Quantity:</label>
                     <input
-                        placeholder="100"
+                        placeholder={placeHolderAmount}
                         name="quantity"
                         type="number"
                         id="quantity"
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="admin-section-divs">
                     <label htmlFor="category">Product Category:</label>
                     <select
                         name="category"
@@ -127,12 +156,8 @@ function ProductForm() {
                             <option key={item._id} value={item._id}>{item.name}</option>
                         ))}
                     </select>
-                </div>
-                <div className="flex-row flex-end">
-                    <button type="submit">
-                        Submit
-                    </button>
-                </div>
+                </div>                
+                <button id="admin-btn" data-testid="button" type="submit" onClick={() => refreshPage()}>Add Product</button>
             </form>
         </div>
     );

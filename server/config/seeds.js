@@ -23,7 +23,7 @@ db.once('open', async () => {
 			name: 'ICECO Portable Cooler',
 			description: 'ICECO JP40 Portable Refrigerator Fridge Freezer, 12V Cooler Refrigerator, 40 Liters Compact Refrigerator with Secop Compressor, for Car & Home Use, 0℉～50℉, DC 12/24V, AC 110/240V ',
 			image: 'cooler.jpg',
-			category: categories[2]._id,
+			category: categories[1]._id,
 			price: 529.99,
 			quantity: 500,
 		},
@@ -32,7 +32,7 @@ db.once('open', async () => {
 			description:
 				'Introducing the JBL Charge 4 portable Bluetooth speaker with full-spectrum, powerful sound and a built-in power bank to charge your devices. It features a proprietary developed driver and two JBL bass radiators that intensify sound with strong deep bass.',
 			image: 'jbl-speaker.jpg',
-			category: categories[2]._id,
+			category: categories[1]._id,
 			price: 89.99,
 			quantity: 500,
 		},

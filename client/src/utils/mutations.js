@@ -145,3 +145,19 @@ export const REMOVE_PRODUCT = gql`
         }
     }
 `;
+
+export const DELETE_PRODUCT = gql`
+mutation Mutation($deleteProductId: ID!) {
+  deleteProduct(_id: $deleteProductId) {
+    name
+    description
+    image
+    quantity
+    price
+    category {
+      _id
+      name
+    }
+  }
+}
+`;

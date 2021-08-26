@@ -22,7 +22,7 @@
 A MERN-stack single-page application that works with real-world data to solve a
 real-world challenge
 
-#### [Project3.herokuapp.com](https://Project3.herokuapp.com/)
+#### [Project3.herokuapp.com](https://frozen-atoll-82959.herokuapp.com/)
 
 ## 🎬 Screenshot
 

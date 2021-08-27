@@ -9,10 +9,11 @@ import { UPDATE_PRODUCTS } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
 import { DELETE_PRODUCT } from '../utils/mutations';
 import '../components/AdminPage/style.css'
+import AddCategory from '../components/AddCategory';
 
 function refreshPage() {
-    window.location.reload(false);
-  }
+	window.location.reload(false);
+}
 
 const Admin = () => {
 	const { loading, data } = useQuery(QUERY_PRODUCTS);
@@ -58,28 +59,25 @@ const Admin = () => {
 
 	return (
 		<div id="admin-div">
-			<h1 className="title">Add, Edit, and Delete Products:</h1>	
+			<h1 className="title">Add, Edit, and Delete Products:</h1>
 			<div id="admin-page-div">
-				<ProductForm />	
+				<AddCategory />
+				<ProductForm />
 				<div id="product-div-scroll">
 					<div id="admin-wrapper">
 						{state.products.map(product => (
 							<div className="admin-card" key={product._id}>
 								<button className="delete-btn" onClick={() => {
 									refreshPage()
-									handleDeleteProduct(product._id)}}>Delete ↓</button>
+									handleDeleteProduct(product._id)
+								}}>Delete ↓</button>
 								<ProductItem _id={product._id} image={product.image} name={product.name} price={product.price} quantity={product.quantity} />
 							</div>
 						))}
 					</div>
-				</div>		
-				
-
+				</div>
 			</div>
-			
-
-
-			<Cart />			
+			<Cart />
 		</div>
 	);
 };

@@ -112,6 +112,11 @@ const resolvers = {
             const product = await Product.create(args);
             return product;
         },
+        addCategory: async (parent, args) => {
+            const category = await Category.create(args);
+
+            return { category };
+        },
         updateUser: async (parent, args, context) => {
             if (context.user) {
                 return await User.findByIdAndUpdate(context.user._id, args, { new: true });

@@ -109,6 +109,15 @@ mutation addProduct($name: String!, $description: String!, $image: String!, $qua
 }
 `;
 
+export const ADD_CATEGORY = gql`
+mutation addCategory($name: String!) {
+  addCategory(name: $name) {
+            _id
+            name
+            }
+}
+`;
+
 export const SAVE_PRODUCT = gql`
     mutation saveProduct($input: productInput!) {
         saveProduct(input: $input) {

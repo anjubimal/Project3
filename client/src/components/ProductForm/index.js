@@ -78,7 +78,7 @@ function ProductForm(props) {
                         image: imageId,
                         price: parseFloat(formState.price),
                         quantity: parseInt(formState.quantity),
-                        // category: formState.category
+                        category: formState.category
                     }
                 });
                 const token = mutationResponse;
